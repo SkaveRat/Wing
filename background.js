@@ -17,5 +17,5 @@ function updateTimeline(backend) {
 	backend.updateTimeline(function(data){
 		chrome.extension.sendMessage(null, {"userHome": data});
 	});
-	window.setTimeout( function(){updateTimeline(backend)}, 10000)
+	window.setTimeout( function(){updateTimeline(backend)}, 30000)
 }
