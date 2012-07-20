@@ -1,0 +1,15 @@
+#timelines {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+}
+.timeline {
+    -webkit-box-flex: 1;
+    width: -webkit-flex(1);
+    width: flex(1);
+    border: 1px solid #000;
+}
+.tweet {
+    width: 300px;
+    padding: 10px;
+}

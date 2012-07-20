@@ -1,8 +1,21 @@
 $(document).ready(function(){
-	foobar();
+	var backend = new WingBackend(localStorage['oauth_token'], localStorage['oauth_token_secret']);
+	backend.getUserHome(function(data){
+		chrome.extension.sendMessage(null, {"initialUserHome": data});
+		console.log("FOO");
+		console.log(backend);
+		updateTimeline(backend);
+	});
 });
 
-function foobar() {
-	chrome.extension.sendMessage(null, {"foo": "bar"});
-	window.setTimeout( foobar, 10000)
+
+/**
+ * Update the timeline
+ * @param backend
+ */
+function updateTimeline(backend) {
+	backend.updateTimeline(function(data){
+		chrome.extension.sendMessage(null, {"userHome": data});
+	});
+	window.setTimeout( function(){updateTimeline(backend)}, 10000)
 }
