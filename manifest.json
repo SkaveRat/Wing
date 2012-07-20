@@ -5,6 +5,18 @@
 	"description": "Testproject for Twitter API",
 	"options_page": "options.html",
 	"permissions": [
-		"https://api.twitter.com/"
-	]
+		"https://api.twitter.com/",
+		"https://userstream.twitter.com/"
+	],
+	"background": {
+		"scripts": [
+			"lib/jquery-1.7.2.min.js",
+			"background.js"
+		]
+	},
+	"app": {
+		"launch": {
+			"local_path": "index.html"
+		}
+	}
 }
